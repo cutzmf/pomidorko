@@ -1,0 +1,23 @@
+#!/bin/bash
+[[ -z $1 ]] && MSG='Lets go!'
+#DISPLAY=:0 xmessage -button 'stop','calm 5','relax 10','work 25' -print -center "$MSG" >/dev/null
+gxmessage -display :0 -nofocus -title Помидорко -button 'stop','calm 5','relax 10','work 25' -print -center "$MSG" >/dev/null
+case $? in
+    101)
+	exit 0
+    ;;
+    102)
+	TIME='5'
+	MSG='Hey U Lazy Ass now button <work> press'
+    ;;
+    103)
+	TIME='10'
+	MSG='Hey U Lazy Ass now button <work> press'
+    ;;
+    104)
+	TIME='25'
+	MSG='Calm down man...'
+    ;;
+esac
+	echo ${BASH_SOURCE[0]} \"$MSG\" |at now + $TIME min >/dev/null 2>&1
+exit 0
