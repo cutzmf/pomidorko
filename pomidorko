@@ -1,7 +1,8 @@
 #!/bin/bash
 [[ -z $1 ]] && MSG='Lets go!'
+MSG="$1"
 #DISPLAY=:0 xmessage -button 'stop','calm 5','relax 10','work 25' -print -center "$MSG" >/dev/null
-gxmessage -display :0 -nofocus -title Помидорко -button 'stop','calm 5','relax 10','work 25' -print -center "$MSG" >/dev/null
+gxmessage -display :0 -nofocus -font  "URW Gothic L 14" -title Помидорко -button 'stop','calm 5','relax 10','work 25' -print -center "$MSG" >/dev/null
 case $? in
     101)
 	exit 0
